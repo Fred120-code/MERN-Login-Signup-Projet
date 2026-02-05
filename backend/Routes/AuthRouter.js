@@ -1,8 +1,8 @@
 const router = require("express").Router();
+const { signup, login} = require("../Controllers/AuthController");
+const { signupValidation, loginValidation } = require("../Midldlewares/AuthValidation");
 
-router.post("/login", (req, res) => {
-  console.log("/auth/login Post hit");
-  res.send("Login Succes");
-});
+router.post("/signup", signupValidation, signup)
+router.post("/login", loginValidation, login)
 
 module.exports = router;

@@ -38,9 +38,9 @@ const signup = async (req, res) => {
   }
 };
 
-const logiin = async (req, res) => {
+const login = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { email, password } = req.body;
 
     const user = await UserModel.findOne({ email });
     const errormsg = "Auth Faild: Email Or Password is wrong";
@@ -84,5 +84,5 @@ const logiin = async (req, res) => {
 
 module.exports = {
   signup,
-  logiin,
+  login,
 };
