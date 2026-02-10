@@ -10,7 +10,6 @@ function App() {
   return (
     <>
       <Routes>
-        $
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/" element={<Index/>} />
         <Route path="/login" element={<Login/>} />
