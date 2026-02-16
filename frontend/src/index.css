@@ -18,12 +18,12 @@ body{
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
-.signup-wrapper input{
+.signup-wrapper input
+.login-wrapper input{
     color: #fff;
     font-weight:300;
 
     &::placeholder{
         color: #fff;
-        opacity: 0.7;
     }
 }
