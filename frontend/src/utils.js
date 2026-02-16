@@ -2,24 +2,12 @@ import {toast} from 'react-toastify';
 
 export const handleSuccess = (message) => {
     toast.success(message, {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
+        position: 'top-right',
     });
 }
 
 export const handleError = (message) => {
-    toast.error(message, {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
+    toast.info(message, {
+        position: 'top-right',
     });
 }
