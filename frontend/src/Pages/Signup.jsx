@@ -10,6 +10,7 @@ function Signup() {
     email: "",
     password: "",
   });
+  const [showpassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
 
@@ -18,7 +19,6 @@ function Signup() {
     const copySignupInfo = { ...signupInfo };
     copySignupInfo[name] = value;
     setSignupInfo(copySignupInfo);
-    console.log("Signup Info", signupInfo);
   };
 
   const handleSingup = async (e) => {
@@ -30,6 +30,7 @@ function Signup() {
       handleError("Please fill in all fields");
       return;
     }
+    
     try {
       const url = "http://localhost:3000/auth/signup";
       const response = await fetch(url, {
@@ -49,22 +50,26 @@ function Signup() {
         setTimeout(() => {
           navigate("/login");
         }, 1000);
-      } else if (error) {
+      } 
+      
+      else if (error) {
         const details = error?.details[0].message;
         handleError(details);
-      } else if (!success) {
+      } 
+      
+      else if (!success) {
         handleError(message);
       }
-      console.log(data);
+
       if (!response.ok) {
         throw new Error(data.message || "Signup failed");
       }
+
     } catch (error) {
       handleError(error.response.data.message || "Signup failed");
     }
   };
 
-  const [showpassword, setShowPassword] = useState(false);
   const togglePasswordVisibility = () => {
     setShowPassword(!showpassword);
   };

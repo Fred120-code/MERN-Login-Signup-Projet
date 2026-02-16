@@ -29,6 +29,7 @@ function Login() {
       handleError("Please enter both email and password");
       return;
     }
+
     try {
       const url = "http://localhost:3000/auth/login";
       const response = await fetch(url, {
@@ -50,14 +51,10 @@ function Login() {
         setTimeout(() => {
           navigate("/index");
         }, 1000);
-      } 
-      
-      else if (error) {
+      } else if (error) {
         const details = error?.details[0] || "Login failed";
         handleError(details);
-      } 
-      
-      else if (!success) {
+      } else if (!success) {
         handleError(message || "Ivalid credentials");
       }
 
@@ -127,14 +124,22 @@ function Login() {
 
             <div className="d-flex justify-content-between align-items-center mb-4">
               <div className="form-check">
-                <input type='checkbox' className="form-check-input" id="rememberMe" />
-                <label htmlFor="rememberMe" className="form-check-label text-white">
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  id="rememberMe"
+                />
+                <label
+                  htmlFor="rememberMe"
+                  className="form-check-label text-white"
+                >
                   Remember Me
                 </label>
               </div>
-              <a href="#" className="text-decoration-none text-white-50">Forgot password</a>
+              <a href="#" className="text-decoration-none text-white-50">
+                Forgot password
+              </a>
             </div>
-
 
             <button
               type="submit"
